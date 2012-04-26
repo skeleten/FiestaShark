@@ -1,4 +1,6 @@
-﻿namespace MapleShark
+﻿using DevComponents.DotNetBar.Controls;
+
+namespace MapleShark
 {
     partial class SearchForm
     {
@@ -33,12 +35,12 @@
             this.mOpcodeCombo = new System.Windows.Forms.ComboBox();
             this.mNextOpcodeButton = new System.Windows.Forms.Button();
             this.mSequenceSplitter = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Typebox = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.HeaderBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.mSequenceHex = new System.Windows.Forms.HexBox();
             this.mNextSequenceButton = new System.Windows.Forms.Button();
-            this.HeaderBox = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.Typebox = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.mSplitter.Panel1.SuspendLayout();
             this.mSplitter.Panel2.SuspendLayout();
             this.mSplitter.SuspendLayout();
@@ -141,6 +143,48 @@
             this.mSequenceSplitter.TabIndex = 7;
             this.mSequenceSplitter.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(270, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 14);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Type";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(109, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Header";
+            // 
+            // Typebox
+            // 
+            // 
+            // 
+            // 
+            this.Typebox.Border.Class = "TextBoxBorder";
+            this.Typebox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Typebox.Location = new System.Drawing.Point(164, 32);
+            this.Typebox.Name = "Typebox";
+            this.Typebox.Size = new System.Drawing.Size(100, 20);
+            this.Typebox.TabIndex = 8;
+            // 
+            // HeaderBox
+            // 
+            // 
+            // 
+            // 
+            this.HeaderBox.Border.Class = "TextBoxBorder";
+            this.HeaderBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.HeaderBox.Location = new System.Drawing.Point(3, 32);
+            this.HeaderBox.Name = "HeaderBox";
+            this.HeaderBox.Size = new System.Drawing.Size(100, 20);
+            this.HeaderBox.TabIndex = 7;
+            // 
             // mSequenceHex
             // 
             this.mSequenceHex.Dock = System.Windows.Forms.DockStyle.Top;
@@ -167,58 +211,16 @@
             this.mNextSequenceButton.UseVisualStyleBackColor = true;
             this.mNextSequenceButton.Click += new System.EventHandler(this.mNextSequenceButton_Click);
             // 
-            // HeaderBox
-            // 
-            // 
-            // 
-            // 
-            this.HeaderBox.Border.Class = "TextBoxBorder";
-            this.HeaderBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.HeaderBox.Location = new System.Drawing.Point(3, 32);
-            this.HeaderBox.Name = "HeaderBox";
-            this.HeaderBox.Size = new System.Drawing.Size(100, 20);
-            this.HeaderBox.TabIndex = 7;
-            // 
-            // Typebox
-            // 
-            // 
-            // 
-            // 
-            this.Typebox.Border.Class = "TextBoxBorder";
-            this.Typebox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Typebox.Location = new System.Drawing.Point(164, 32);
-            this.Typebox.Name = "Typebox";
-            this.Typebox.Size = new System.Drawing.Size(100, 20);
-            this.Typebox.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 14);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Header";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(270, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 14);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Type";
-            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 102);
             this.Controls.Add(this.mSplitter);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
             this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HideOnClose = true;
             this.MinimumSize = new System.Drawing.Size(531, 82);
@@ -251,8 +253,8 @@
         private System.Windows.Forms.HexBox mSequenceHex;
         private System.Windows.Forms.Button mNextSequenceButton;
         private System.Windows.Forms.Label label1;
-    	public DevComponents.DotNetBar.Controls.TextBoxX Typebox;
+    	public TextBoxX Typebox;
         public System.Windows.Forms.Label label2;
-    	public DevComponents.DotNetBar.Controls.TextBoxX HeaderBox;
+    	public TextBoxX HeaderBox;
     }
 }
