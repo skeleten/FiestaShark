@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MapleShark</RootNamespace>
-    <AssemblyName>MapleShark</AssemblyName>
+    <AssemblyName>FiestaShark</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Fiesta.ico</ApplicationIcon>
