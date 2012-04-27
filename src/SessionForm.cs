@@ -29,6 +29,8 @@ namespace MapleShark
         private List<FiestaPacket> mPackets = new List<FiestaPacket>();
         private List<Pair<bool, ushort>> mOpcodes = new List<Pair<bool, ushort>>();
 
+        public Func<FiestaPacket, bool> FilterOut = (packet) => false; 
+
         internal SessionForm()
         {
             InitializeComponent();
@@ -130,7 +132,8 @@ namespace MapleShark
                         refreshOpcodes = true;
                     }
                     if (definition != null && definition.Ignore) continue;
-                    mPacketList.Items.Add(packet);
+                    if(!FilterOut(packet))
+                        mPacketList.Items.Add(packet);
                     if (mPacketList.SelectedItems.Count == 0) packet.EnsureVisible();
                 }
             }
@@ -142,8 +145,6 @@ namespace MapleShark
                 mTerminated = true;
                 Text += " (Terminated)";
             }
-            
-            if (DockPanel.ActiveDocument == this && refreshOpcodes) MainForm.SearchForm.RefreshOpcodes(true);
         }
 
         public void OpenReadOnly(string pFilename)
@@ -179,7 +180,6 @@ namespace MapleShark
 
         public void RefreshPackets()
         {
-            Pair<bool, ushort> search = (MainForm.SearchForm.ComboBox.SelectedIndex >= 0 ? mOpcodes[MainForm.SearchForm.ComboBox.SelectedIndex] : null);
             FiestaPacket previous = mPacketList.SelectedItems.Count > 0 ? mPacketList.SelectedItems[0] as FiestaPacket : null;
             mOpcodes.Clear();
             mPacketList.Items.Clear();
@@ -193,6 +193,7 @@ namespace MapleShark
                 FiestaPacket packet = mPackets[index];
                 if (packet.Outbound && !mViewOutboundMenu.Checked) continue;
                 if (!packet.Outbound && !mViewInboundMenu.Checked) continue;
+                if (FilterOut(packet)) continue;
                 Definition definition = Config.Instance.Definitions.Find(d => d.Build == mBuild && d.Outbound == packet.Outbound && d.Opcode == packet.Opcode);
                 packet.Name = definition == null ? "" : definition.Name;
                 if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode)) mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
@@ -200,7 +201,6 @@ namespace MapleShark
                 mPacketList.Items.Add(packet);
                 if (packet == previous) packet.Selected = true;
             }
-            MainForm.SearchForm.RefreshOpcodes(true);
         }
 
 

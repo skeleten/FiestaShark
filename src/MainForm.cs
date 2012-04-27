@@ -54,8 +54,6 @@ namespace MapleShark
             {
                 byte[] buffer = new byte[mDataForm.HexBox.SelectionLength];
                 Buffer.BlockCopy((mDataForm.HexBox.ByteProvider as DynamicByteProvider).Bytes.ToArray(), (int)mDataForm.HexBox.SelectionStart, buffer, 0, (int)mDataForm.HexBox.SelectionLength);
-                mSearchForm.HexBox.ByteProvider.DeleteBytes(0, mSearchForm.HexBox.ByteProvider.Length);
-                mSearchForm.HexBox.ByteProvider.InsertBytes(0, buffer);
                 pArgs.SuppressKeyPress = true;
             }
         }
@@ -110,7 +108,6 @@ namespace MapleShark
             if (!mClosed)
             {
                 SessionForm session = mDockPanel.ActiveDocument as SessionForm;
-                mSearchForm.ComboBox.Items.Clear();
                 if (session != null) session.RefreshPackets();
                 else
                 {
@@ -138,7 +135,6 @@ namespace MapleShark
                 if (tcpPacket.Syn && !tcpPacket.Ack) { session = NewSession(); session.BufferTCPPacket(tcpPacket); }
                 else if (session.MatchTCPPacket(tcpPacket)) session.BufferTCPPacket(tcpPacket);
             }
-            mSearchForm.RefreshOpcodes(false);
         }
 
         private void mFileOpenMenu_Click(object pSender, EventArgs pArgs)
@@ -150,7 +146,6 @@ namespace MapleShark
                     SessionForm session = NewSession();
                     session.OpenReadOnly(mOpenDialog.FileName);
                 }
-                mSearchForm.RefreshOpcodes(false);
             }
         }
 
