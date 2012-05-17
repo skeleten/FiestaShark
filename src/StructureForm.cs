@@ -114,7 +114,7 @@ namespace MapleShark
            }
            else
            {
-               CurrentNodes.Add("Item in Data notfound by id = "+ItemID+"");
+               CurrentNodes.Add("Item in Data not found by id = "+ItemID+"");
                return 255;
            }
         }
