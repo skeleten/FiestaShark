@@ -13,6 +13,11 @@ namespace MapleShark
         [Bindable(false)]
         internal ScriptAPI(StructureForm pStructure) { mStructure = pStructure; }
 
+        public byte GetItemTypeByName(ushort ItemID) { return mStructure.APIGetItemTypeByID(ItemID); }
+        public byte GetItemTypeByName(string InxName) { return mStructure.APIGetItemTypeByName(InxName); }
+        public bool IsItemTwoHand(ushort ItemID) { return mStructure.APIIsItemTwoHand(ItemID); }
+        public byte GetItemClassByName(string ItemInxName) { return mStructure.APIGetItemClassByName(ItemInxName); }
+        public byte GetItemClassByID(ushort ItemID) { return mStructure.APIGetItemClassByID(ItemID); }
         public long AddByte(string pName) { return mStructure.APIAddByte(pName); }
         public long AddSByte(string pName) { return mStructure.APIAddSByte(pName); }
         public long AddUShort(string pName) { return mStructure.APIAddUShort(pName); }

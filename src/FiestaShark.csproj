@@ -509,6 +509,17 @@
     <Compile Include="SharpPcap\Util\NumberRange.cs" />
     <Compile Include="SharpPcap\Util\Random.cs" />
     <Compile Include="SharpPcap\Version.cs" />
+    <Compile Include="SHN\Datas\Data.cs" />
+    <Compile Include="SHN\Datas\ItemInfo.cs" />
+    <Compile Include="SHN\DataTableReaderEx.cs" />
+    <Compile Include="SHN\FileCrypto.cs" />
+    <Compile Include="SHN\SHNColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SHN\SHNFile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SHN\SHNReader.cs" />
     <Compile Include="StructureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -864,6 +875,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

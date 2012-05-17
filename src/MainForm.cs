@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using MapleShark.SHN.Datas;
 
 namespace MapleShark
 {
@@ -19,6 +20,7 @@ namespace MapleShark
         private DataForm mDataForm = new DataForm();
         private StructureForm mStructureForm = new StructureForm();
         private PropertyForm mPropertyForm = new PropertyForm();
+        public static Data ExtraData = new Data();
 
         public MainForm(string[] pArgs)
         {
@@ -185,6 +187,21 @@ namespace MapleShark
         {
             if (mViewPropertiesMenu.Checked) mPropertyForm.Show();
             else mPropertyForm.Hide();
+        }
+
+        private void itemInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExtraData.LoadItemInfo();
+
+        }
+
+        private void unloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExtraData.UnloadItems();
         }
     }
 }

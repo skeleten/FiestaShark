@@ -79,3 +79,24 @@ int Remaining()
 
   Returns the number of bytes remaining unprocessed in the packet.
 
+byte GetItemTypeByName(ushort ItemID)
+
+  returns itemtype When ItemInfo Laodet
+
+byte GetItemTypeByName(string InxName)
+
+  returns itemtype When ItemInfo Laodet
+
+bool IsItemTwoHand(ushort ItemID)
+
+return twohand true or false when itemInfo.shn Loadet
+
+
+byte GetItemClassByName(string ItemInxName)
+
+  returns itemclass When ItemInfo Laodet
+
+
+byte GetItemClassByID(ushort ItemID)
+
+  returns itemclass When ItemInfo Laodet

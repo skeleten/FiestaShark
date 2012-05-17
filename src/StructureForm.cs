@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using MapleShark.SHN.Datas;
 
 namespace MapleShark
 {
@@ -98,6 +99,96 @@ namespace MapleShark
             if (!mParsing.ReadInt(out value)) throw new Exception("Insufficient packet data");
             CurrentNodes.Add(new StructureNode(pName, mParsing.InnerBuffer, mParsing.Cursor - 4, 4));
             return value;
+        }
+        internal byte APIGetItemClassByID(ushort ItemID)
+        {
+           ItemInfo GetItem;
+           if (MainForm.ExtraData.ItemsByID.Count <= 0)
+           {
+               CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+           }
+           if(MainForm.ExtraData.ItemsByID.TryGetValue(ItemID,out GetItem))
+           {
+               CurrentNodes.Add("Class = "+GetItem.Class);
+               return GetItem.Class;
+           }
+           else
+           {
+               CurrentNodes.Add("Item in Data notfound by id = "+ItemID+"");
+               return 255;
+           }
+        }
+        internal byte APIGetItemTypeByID(ushort ItemID)
+        {
+            ItemInfo GetItem;
+            if (MainForm.ExtraData.ItemsByID.Count <= 0)
+            {
+                CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+            }
+            if (MainForm.ExtraData.ItemsByID.TryGetValue(ItemID, out GetItem))
+            {
+                CurrentNodes.Add("Type = " + GetItem.Type);
+                return GetItem.Type;
+            }
+            else
+            {
+                CurrentNodes.Add("Item in ItemInfo.shn not found by id = " + ItemID + "");
+                return 255;
+            }
+        }
+        internal bool APIIsItemTwoHand(ushort ItemID)
+        {
+            ItemInfo GetItem;
+            if (MainForm.ExtraData.ItemsByID.Count <= 0)
+            {
+                CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+            }
+            if (MainForm.ExtraData.ItemsByID.TryGetValue(ItemID, out GetItem))
+            {
+                CurrentNodes.Add("TwoHand = " + GetItem.TwoHand);
+                return GetItem.TwoHand;
+            }
+            else
+            {
+                CurrentNodes.Add("Item in ItemInfo.shn not found by ID = " + ItemID + "");
+                return false;
+            }
+        }
+        internal byte APIGetItemTypeByName(string ItemInxName)
+        {
+            ItemInfo GetItem;
+            if (MainForm.ExtraData.ItemsByName.Count <= 0)
+            {
+                CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+            }
+            if (MainForm.ExtraData.ItemsByName.TryGetValue(ItemInxName, out GetItem))
+            {
+                CurrentNodes.Add("Type = " + GetItem.Type);
+                return GetItem.Type;
+            }
+            else
+            {
+                CurrentNodes.Add("Item in ItemInfo.shn not found by InxName = " + ItemInxName + "");
+                return 255;
+            }
+        }
+        internal byte APIGetItemClassByName(string ItemInxName)
+        {
+            ItemInfo GetItem;
+            if (MainForm.ExtraData.ItemsByName.Count <= 0)
+            {
+                CurrentNodes.Add("the data ItemInfo.shn is not available Please Load ItemInfo.Shn");
+            }
+            if (MainForm.ExtraData.ItemsByName.TryGetValue(ItemInxName, out GetItem))
+            {
+                CurrentNodes.Add("Class = " + GetItem.Class);
+                return GetItem.Class;
+            }
+            else
+            {
+                CurrentNodes.Add("Item in ItemInfo.shn not found by InxName = " + ItemInxName + "");
+                return 255;
+            }
         }
         internal float APIAddFloat(string pName)
         {

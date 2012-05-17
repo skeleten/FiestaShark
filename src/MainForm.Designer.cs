@@ -59,7 +59,11 @@
             this.mTimer = new System.Windows.Forms.Timer(this.components);
             this.mImportDialog = new System.Windows.Forms.OpenFileDialog();
             this.mOpenDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataLoadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mDockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +71,8 @@
             // 
             this.mMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mFileMenu,
-            this.mViewMenu});
+            this.mViewMenu,
+            this.dataLoadToolStripMenuItem});
             this.mMenu.Location = new System.Drawing.Point(0, 0);
             this.mMenu.Name = "mMenu";
             this.mMenu.Size = new System.Drawing.Size(947, 24);
@@ -188,15 +193,33 @@
             this.mOpenDialog.RestoreDirectory = true;
             this.mOpenDialog.Title = "Open";
             // 
+            // dataLoadToolStripMenuItem
+            // 
+            this.dataLoadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemInfoToolStripMenuItem});
+            this.dataLoadToolStripMenuItem.Name = "dataLoadToolStripMenuItem";
+            this.dataLoadToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.dataLoadToolStripMenuItem.Text = "Data Load";
+            // 
+            // itemInfoToolStripMenuItem
+            // 
+            this.itemInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadToolStripMenuItem,
+            this.unloadToolStripMenuItem});
+            this.itemInfoToolStripMenuItem.Name = "itemInfoToolStripMenuItem";
+            this.itemInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.itemInfoToolStripMenuItem.Text = "ItemInfo";
+            this.itemInfoToolStripMenuItem.Click += new System.EventHandler(this.itemInfoToolStripMenuItem_Click);
+            // 
             // mDockPanel
             // 
             this.mDockPanel.ActiveAutoHideContent = null;
             this.mDockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mDockPanel.DockBackColor = System.Drawing.SystemColors.ControlDark;
-            this.mDockPanel.DockBottomPortion = 0.3;
-            this.mDockPanel.DockLeftPortion = 0.3;
-            this.mDockPanel.DockRightPortion = 0.3;
-            this.mDockPanel.DockTopPortion = 75;
+            this.mDockPanel.DockBottomPortion = 0.3D;
+            this.mDockPanel.DockLeftPortion = 0.3D;
+            this.mDockPanel.DockRightPortion = 0.3D;
+            this.mDockPanel.DockTopPortion = 75D;
             this.mDockPanel.Location = new System.Drawing.Point(0, 24);
             this.mDockPanel.Name = "mDockPanel";
             this.mDockPanel.Size = new System.Drawing.Size(947, 449);
@@ -247,6 +270,20 @@
             this.mDockPanel.TabIndex = 4;
             this.mDockPanel.ActiveDocumentChanged += new System.EventHandler(this.mDockPanel_ActiveDocumentChanged);
             // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // unloadToolStripMenuItem
+            // 
+            this.unloadToolStripMenuItem.Name = "unloadToolStripMenuItem";
+            this.unloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unloadToolStripMenuItem.Text = "Unload";
+            this.unloadToolStripMenuItem.Click += new System.EventHandler(this.unloadToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,8 +298,8 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FiestaShark 1.0.1";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mMenu.ResumeLayout(false);
             this.mMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -287,6 +324,10 @@
         private System.Windows.Forms.ToolStripMenuItem mFileQuit;
         private System.Windows.Forms.ToolStripMenuItem mViewDataMenu;
         private System.Windows.Forms.ToolStripMenuItem mViewSearchMenu;
+        private System.Windows.Forms.ToolStripMenuItem dataLoadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unloadToolStripMenuItem;
     }
 }
 
