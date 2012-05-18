@@ -8,7 +8,6 @@ namespace MapleShark.SHN.Datas
     public sealed class ItemInfo
     {
         public ushort ItemID { get; private set; }
-        public byte Slot { get; private set; }
         public bool TwoHand { get; private set; }
         public string InxName { get; private set; }
         public byte MaxLot { get; private set; }
@@ -16,6 +15,7 @@ namespace MapleShark.SHN.Datas
         public byte Level { get; private set; }
         public byte Type { get; private set; }
         public byte Class { get; private set; }
+        public byte EquipType { get; private set; }
         public byte UpgradeLimit { get; private set; }
         public byte Jobs { get; private set; }
         public ushort MinMagic { get; private set; }
@@ -39,7 +39,7 @@ namespace MapleShark.SHN.Datas
             ItemInfo itemInfo = new ItemInfo
             {
                 ItemID = reader.GetUInt16("id"),
-                Slot = (byte)reader.GetUInt32("equip"),
+                EquipType = (byte)reader.GetUInt32("equip"),
                 InxName = reader.GetString("inxname"),
                 MaxLot = (byte)reader.GetUInt32("maxlot"),
                 AttackSpeed = (ushort)reader.GetUInt32("atkspeed"),

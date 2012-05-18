@@ -106,6 +106,7 @@ namespace MapleShark
            if (MainForm.ExtraData.ItemsByID.Count <= 0)
            {
                CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+               return 255;
            }
            if(MainForm.ExtraData.ItemsByID.TryGetValue(ItemID,out GetItem))
            {
@@ -118,12 +119,32 @@ namespace MapleShark
                return 255;
            }
         }
+        internal byte APIGetEquipTypeByItemID(ushort ItemID)
+        {
+            ItemInfo GetItem;
+            if (MainForm.ExtraData.ItemsByID.Count <= 0)
+            {
+                CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+                return 99;
+            }
+            if (MainForm.ExtraData.ItemsByID.TryGetValue(ItemID, out GetItem))
+            {
+                CurrentNodes.Add("EquiptType = " + GetItem.EquipType);
+                return GetItem.EquipType;
+            }
+            else
+            {
+                CurrentNodes.Add("Item in ItemInfo.shn not found by id = " + ItemID + "");
+                return 255;
+            }
+        }
         internal byte APIGetItemTypeByID(ushort ItemID)
         {
             ItemInfo GetItem;
             if (MainForm.ExtraData.ItemsByID.Count <= 0)
             {
                 CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+                return 0;
             }
             if (MainForm.ExtraData.ItemsByID.TryGetValue(ItemID, out GetItem))
             {
@@ -142,6 +163,7 @@ namespace MapleShark
             if (MainForm.ExtraData.ItemsByID.Count <= 0)
             {
                 CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+                return false;
             }
             if (MainForm.ExtraData.ItemsByID.TryGetValue(ItemID, out GetItem))
             {
@@ -160,6 +182,7 @@ namespace MapleShark
             if (MainForm.ExtraData.ItemsByName.Count <= 0)
             {
                 CurrentNodes.Add("the data item is not available Please Load ItemInfo.Shn");
+                return 255;
             }
             if (MainForm.ExtraData.ItemsByName.TryGetValue(ItemInxName, out GetItem))
             {
@@ -178,6 +201,7 @@ namespace MapleShark
             if (MainForm.ExtraData.ItemsByName.Count <= 0)
             {
                 CurrentNodes.Add("the data ItemInfo.shn is not available Please Load ItemInfo.Shn");
+                return 255;
             }
             if (MainForm.ExtraData.ItemsByName.TryGetValue(ItemInxName, out GetItem))
             {
