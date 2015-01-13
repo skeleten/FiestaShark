@@ -23,7 +23,7 @@ namespace MapleShark
             bool headerDefined = HeaderBox.Text != "";
             byte header = 0;
             if(headerDefined)
-                header = byte.Parse(HeaderBox.ToString());
+                header = byte.Parse(HeaderBox.Text);
             bool typeDefined = Typebox.Text != "";
             byte type = 0;
             if(typeDefined)
@@ -40,8 +40,9 @@ namespace MapleShark
                                     ret = true;
                                 return ret;
                             };
-            session.RefreshPackets();
             session.ListView.Focus();
+            session.RefreshPackets();
+
         }
 
         private void resetFilter_Click(object sender, EventArgs e)

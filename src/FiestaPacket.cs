@@ -12,7 +12,7 @@ namespace MapleShark
         private ushort mBuild = 1;
         private ushort mOpcode = 0;
         private byte[] mBuffer = null;
-       public int  mType;
+        private int mType;
         private int  mheader;
         private int mCursor = 0;
 

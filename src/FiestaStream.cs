@@ -54,6 +54,7 @@ namespace MapleShark
             Definition definition = Config.Instance.Definitions.Find(d => d.Build == 1 && d.Outbound == encrypt && d.Opcode == opcode);
             if (SearchForm.Instance.HeaderBox.Text != "" || SearchForm.Instance.Typebox.Text != "")
             {
+                
                 if (SearchForm.Instance.HeaderBox.Text == Header.ToString() || SearchForm.Instance.Typebox.Text == Type.ToString())
                 return new FiestaPacket(pTransmitted, encrypt, opcode, Type, Header, definition == null ? "" : definition.Name, packetData);
             }

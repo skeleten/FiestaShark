@@ -30,7 +30,7 @@ namespace MapleShark
         private List<Pair<bool, ushort>> mOpcodes = new List<Pair<bool, ushort>>();
 
         public Func<FiestaPacket, bool> FilterOut = (packet) => false; 
-
+        
         internal SessionForm()
         {
             InitializeComponent();
@@ -119,7 +119,6 @@ namespace MapleShark
             }
 
             FiestaPacket packet;
-            bool refreshOpcodes = false;
             try
             {
                 while ((packet = pStream.Read(pTCPPacket.Timeval.Date)) != null)
@@ -129,19 +128,14 @@ namespace MapleShark
                     if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode))
                     {
                         mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
-                        refreshOpcodes = true;
+    
                     }
                     if (definition != null && definition.Ignore) continue;
                     if (!FilterOut(packet))
                     {
-                        packet.mType = 1;
                         mPacketList.Items.Add(packet);
                     }
                     if (mPacketList.SelectedItems.Count == 0) packet.EnsureVisible();
-                }
-                if (refreshOpcodes)
-                {
-                    RefreshPackets();
                 }
             }
             catch (Exception exc)
