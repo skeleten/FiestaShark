@@ -30,11 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.mPacketList = new System.Windows.Forms.ListView();
-            this.mTimestampColumn = new System.Windows.Forms.ColumnHeader();
-            this.mDirectionColumn = new System.Windows.Forms.ColumnHeader();
-            this.mLengthColumn = new System.Windows.Forms.ColumnHeader();
-            this.mOpcodeColumn = new System.Windows.Forms.ColumnHeader();
-            this.mNameColumn = new System.Windows.Forms.ColumnHeader();
+            this.mTimestampColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mDirectionColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mLengthColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mOpcodeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mPacketContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mPacketContextNameLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.mPacketContextNameBox = new System.Windows.Forms.ToolStripTextBox();
@@ -56,8 +58,6 @@
             this.mViewSeparator3Menu = new System.Windows.Forms.ToolStripSeparator();
             this.mSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.mExportDialog = new System.Windows.Forms.SaveFileDialog();
-            this.Header = new System.Windows.Forms.ColumnHeader();
-            this.Type = new System.Windows.Forms.ColumnHeader();
             this.mPacketContextMenu.SuspendLayout();
             this.mMenu.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,16 @@
             // 
             this.mOpcodeColumn.Text = "Opcode";
             // 
+            // Type
+            // 
+            this.Type.DisplayIndex = 6;
+            this.Type.Text = "Type";
+            // 
+            // Header
+            // 
+            this.Header.Text = "Header";
+            this.Header.Width = 101;
+            // 
             // mNameColumn
             // 
             this.mNameColumn.DisplayIndex = 4;
@@ -121,9 +131,9 @@
             this.mPacketContextSeparator,
             this.mPacketContextIgnoreMenu});
             this.mPacketContextMenu.Name = "mPacketContextMenu";
-            this.mPacketContextMenu.Size = new System.Drawing.Size(211, 77);
-            this.mPacketContextMenu.Opened += new System.EventHandler(this.mPacketContextMenu_Opened);
+            this.mPacketContextMenu.Size = new System.Drawing.Size(211, 79);
             this.mPacketContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.mPacketContextMenu_Opening);
+            this.mPacketContextMenu.Opened += new System.EventHandler(this.mPacketContextMenu_Opened);
             // 
             // mPacketContextNameLabel
             // 
@@ -136,7 +146,7 @@
             // 
             this.mPacketContextNameBox.AcceptsReturn = true;
             this.mPacketContextNameBox.Name = "mPacketContextNameBox";
-            this.mPacketContextNameBox.Size = new System.Drawing.Size(150, 21);
+            this.mPacketContextNameBox.Size = new System.Drawing.Size(150, 23);
             this.mPacketContextNameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mPacketContextNameBox_KeyDown);
             // 
             // mPacketContextSeparator
@@ -171,7 +181,7 @@
             this.mFileExportMenu});
             this.mMainFileMenu.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.mMainFileMenu.Name = "mMainFileMenu";
-            this.mMainFileMenu.Size = new System.Drawing.Size(35, 20);
+            this.mMainFileMenu.Size = new System.Drawing.Size(37, 20);
             this.mMainFileMenu.Text = "&File";
             // 
             // mFileSeparatorMenu
@@ -179,7 +189,7 @@
             this.mFileSeparatorMenu.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mFileSeparatorMenu.MergeIndex = 2;
             this.mFileSeparatorMenu.Name = "mFileSeparatorMenu";
-            this.mFileSeparatorMenu.Size = new System.Drawing.Size(155, 6);
+            this.mFileSeparatorMenu.Size = new System.Drawing.Size(146, 6);
             // 
             // mFileSaveMenu
             // 
@@ -187,7 +197,7 @@
             this.mFileSaveMenu.MergeIndex = 3;
             this.mFileSaveMenu.Name = "mFileSaveMenu";
             this.mFileSaveMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mFileSaveMenu.Size = new System.Drawing.Size(158, 22);
+            this.mFileSaveMenu.Size = new System.Drawing.Size(149, 22);
             this.mFileSaveMenu.Text = "&Save";
             this.mFileSaveMenu.Click += new System.EventHandler(this.mFileSaveMenu_Click);
             // 
@@ -197,7 +207,7 @@
             this.mFileExportMenu.MergeIndex = 4;
             this.mFileExportMenu.Name = "mFileExportMenu";
             this.mFileExportMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.mFileExportMenu.Size = new System.Drawing.Size(158, 22);
+            this.mFileExportMenu.Size = new System.Drawing.Size(149, 22);
             this.mFileExportMenu.Text = "&Export";
             this.mFileExportMenu.Click += new System.EventHandler(this.mFileExportMenu_Click);
             // 
@@ -214,7 +224,7 @@
             this.mViewSeparator3Menu});
             this.mViewMenu.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.mViewMenu.Name = "mViewMenu";
-            this.mViewMenu.Size = new System.Drawing.Size(41, 20);
+            this.mViewMenu.Size = new System.Drawing.Size(44, 20);
             this.mViewMenu.Text = "&View";
             // 
             // mViewCommonScriptMenu
@@ -223,7 +233,7 @@
             this.mViewCommonScriptMenu.MergeIndex = 0;
             this.mViewCommonScriptMenu.Name = "mViewCommonScriptMenu";
             this.mViewCommonScriptMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.mViewCommonScriptMenu.Size = new System.Drawing.Size(175, 22);
+            this.mViewCommonScriptMenu.Size = new System.Drawing.Size(177, 22);
             this.mViewCommonScriptMenu.Text = "Common Script";
             this.mViewCommonScriptMenu.Click += new System.EventHandler(this.mViewCommonScriptMenu_Click);
             // 
@@ -232,7 +242,7 @@
             this.mViewSeparator1Menu.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mViewSeparator1Menu.MergeIndex = 1;
             this.mViewSeparator1Menu.Name = "mViewSeparator1Menu";
-            this.mViewSeparator1Menu.Size = new System.Drawing.Size(172, 6);
+            this.mViewSeparator1Menu.Size = new System.Drawing.Size(174, 6);
             // 
             // mViewRefreshMenu
             // 
@@ -240,7 +250,7 @@
             this.mViewRefreshMenu.MergeIndex = 2;
             this.mViewRefreshMenu.Name = "mViewRefreshMenu";
             this.mViewRefreshMenu.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.mViewRefreshMenu.Size = new System.Drawing.Size(175, 22);
+            this.mViewRefreshMenu.Size = new System.Drawing.Size(177, 22);
             this.mViewRefreshMenu.Text = "&Refresh";
             this.mViewRefreshMenu.Click += new System.EventHandler(this.mViewRefreshMenu_Click);
             // 
@@ -249,7 +259,7 @@
             this.mViewSeparator2Menu.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mViewSeparator2Menu.MergeIndex = 3;
             this.mViewSeparator2Menu.Name = "mViewSeparator2Menu";
-            this.mViewSeparator2Menu.Size = new System.Drawing.Size(172, 6);
+            this.mViewSeparator2Menu.Size = new System.Drawing.Size(174, 6);
             // 
             // mViewOutboundMenu
             // 
@@ -260,7 +270,7 @@
             this.mViewOutboundMenu.MergeIndex = 4;
             this.mViewOutboundMenu.Name = "mViewOutboundMenu";
             this.mViewOutboundMenu.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.mViewOutboundMenu.Size = new System.Drawing.Size(175, 22);
+            this.mViewOutboundMenu.Size = new System.Drawing.Size(177, 22);
             this.mViewOutboundMenu.Text = "Outbound";
             this.mViewOutboundMenu.CheckedChanged += new System.EventHandler(this.mViewOutboundMenu_CheckedChanged);
             // 
@@ -273,7 +283,7 @@
             this.mViewInboundMenu.MergeIndex = 5;
             this.mViewInboundMenu.Name = "mViewInboundMenu";
             this.mViewInboundMenu.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.mViewInboundMenu.Size = new System.Drawing.Size(175, 22);
+            this.mViewInboundMenu.Size = new System.Drawing.Size(177, 22);
             this.mViewInboundMenu.Text = "Inbound";
             this.mViewInboundMenu.CheckedChanged += new System.EventHandler(this.mViewInboundMenu_CheckedChanged);
             // 
@@ -284,7 +294,7 @@
             this.mViewIgnoredMenu.MergeIndex = 6;
             this.mViewIgnoredMenu.Name = "mViewIgnoredMenu";
             this.mViewIgnoredMenu.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.mViewIgnoredMenu.Size = new System.Drawing.Size(175, 22);
+            this.mViewIgnoredMenu.Size = new System.Drawing.Size(177, 22);
             this.mViewIgnoredMenu.Text = "Ignored";
             this.mViewIgnoredMenu.CheckedChanged += new System.EventHandler(this.mViewIgnoredMenu_CheckedChanged);
             // 
@@ -293,7 +303,7 @@
             this.mViewSeparator3Menu.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.mViewSeparator3Menu.MergeIndex = 7;
             this.mViewSeparator3Menu.Name = "mViewSeparator3Menu";
-            this.mViewSeparator3Menu.Size = new System.Drawing.Size(172, 6);
+            this.mViewSeparator3Menu.Size = new System.Drawing.Size(174, 6);
             // 
             // mSaveDialog
             // 
@@ -306,16 +316,6 @@
             this.mExportDialog.Filter = "Text Files|*.txt";
             this.mExportDialog.RestoreDirectory = true;
             this.mExportDialog.Title = "Export";
-            // 
-            // Header
-            // 
-            this.Header.Text = "Header";
-            this.Header.Width = 101;
-            // 
-            // Type
-            // 
-            this.Type.DisplayIndex = 6;
-            this.Type.Text = "Type";
             // 
             // SessionForm
             // 

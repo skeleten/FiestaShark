@@ -22,6 +22,8 @@ namespace MapleShark
         public int? Int { get { if (mBuffer.Length >= 4) return BitConverter.ToInt32(mBuffer, 0); return null; } }
         public ulong? ULong { get { if (mBuffer.Length >= 8) return BitConverter.ToUInt64(mBuffer, 0); return null; } }
         public long? Long { get { if (mBuffer.Length >= 8) return BitConverter.ToInt64(mBuffer, 0); return null; } }
+
+        public long? SelectetLenght { get { return Program.MainForm.pDataForm.HexBox.SelectionLength; } }
         public string String
         {
             get

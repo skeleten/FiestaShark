@@ -12,7 +12,7 @@ namespace MapleShark
         private ushort mBuild = 1;
         private ushort mOpcode = 0;
         private byte[] mBuffer = null;
-        private int  mType;
+       public int  mType;
         private int  mheader;
         private int mCursor = 0;
 
@@ -38,7 +38,7 @@ namespace MapleShark
         public bool Outbound { get { return mOutbound; } }
         public ushort Build { get { return mBuild; } }
         public ushort Opcode { get { return mOpcode; } }
-        public new string Name { set { SubItems[4].Text = value; } }
+        public new string Name { set { SubItems[6].Text = value; } }
         public int Type { get { return mType; } }
         public int Header { get { return mheader; } }
         public byte[] InnerBuffer { get { return mBuffer; } }

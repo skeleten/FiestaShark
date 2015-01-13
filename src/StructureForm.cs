@@ -282,9 +282,9 @@ namespace MapleShark
         private void mTree_AfterSelect(object pSender, TreeViewEventArgs pArgs)
         {
             StructureNode node = pArgs.Node as StructureNode;
-            if (node == null) { MainForm.DataForm.HexBox.SelectionLength = 0; MainForm.PropertyForm.Properties.SelectedObject = null; return; }
-            MainForm.DataForm.HexBox.SelectionStart = node.Cursor;
-            MainForm.DataForm.HexBox.SelectionLength = node.Length;
+            if (node == null) { MainForm.pDataForm.HexBox.SelectionLength = 0; MainForm.PropertyForm.Properties.SelectedObject = null; return; }
+            MainForm.pDataForm.HexBox.SelectionStart = node.Cursor;
+            MainForm.pDataForm.HexBox.SelectionLength = node.Length;
             MainForm.PropertyForm.Properties.SelectedObject = new StructureSegment(node.Buffer, node.Cursor, node.Length);
         }
 

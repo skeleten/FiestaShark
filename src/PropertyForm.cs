@@ -19,5 +19,10 @@ namespace MapleShark
 
         public MainForm MainForm { get { return ParentForm as MainForm; } }
         public PropertyGrid Properties { get { return mProperties; } }
+
+        private void mProperties_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

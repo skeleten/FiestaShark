@@ -16,11 +16,16 @@ namespace MapleShark
             RuntimeHost.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(pArgs));
+            _MainForm = new MainForm(pArgs);
+            Application.Run(_MainForm);
         }
         internal static string AssemblyVersion { get { return Assembly.GetExecutingAssembly().GetName().Version.ToString(); } }
         internal static string AssemblyCopyright { get { return ((AssemblyCopyrightAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright; } }
 
+        internal static MainForm MainForm { get { return _MainForm;  } }
+
+
+        private static MainForm _MainForm;
         private static void RegisterFileAssociation(string pExtension, string pProgramId, string pDescription, string pEXE, string pIconPath, int pIconIndex)
         {
             try

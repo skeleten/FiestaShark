@@ -34,9 +34,10 @@ namespace MapleShark
         }
 
         public SearchForm SearchForm { get { return mSearchForm; } }
-        public DataForm DataForm { get { return mDataForm; } }
+        public DataForm pDataForm { get { return mDataForm; } }
         public StructureForm StructureForm { get { return mStructureForm; } }
         public PropertyForm PropertyForm { get { return mPropertyForm; } }
+
 
         private SessionForm NewSession()
         {

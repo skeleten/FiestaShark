@@ -38,6 +38,7 @@ namespace MapleShark
                     }
                 }
                 MainForm.StructureForm.Tree.SelectedNode = match;
+                
                 if (buffer != null) MainForm.PropertyForm.Properties.SelectedObject = new StructureSegment(buffer, (int)mHex.SelectionStart, (int)mHex.SelectionLength);
                 else MainForm.PropertyForm.Properties.SelectedObject = null;
             }

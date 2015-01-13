@@ -132,9 +132,16 @@ namespace MapleShark
                         refreshOpcodes = true;
                     }
                     if (definition != null && definition.Ignore) continue;
-                    if(!FilterOut(packet))
+                    if (!FilterOut(packet))
+                    {
+                        packet.mType = 1;
                         mPacketList.Items.Add(packet);
+                    }
                     if (mPacketList.SelectedItems.Count == 0) packet.EnsureVisible();
+                }
+                if (refreshOpcodes)
+                {
+                    RefreshPackets();
                 }
             }
             catch (Exception exc)
@@ -183,7 +190,7 @@ namespace MapleShark
             FiestaPacket previous = mPacketList.SelectedItems.Count > 0 ? mPacketList.SelectedItems[0] as FiestaPacket : null;
             mOpcodes.Clear();
             mPacketList.Items.Clear();
-            MainForm.DataForm.HexBox.ByteProvider = null;
+            MainForm.pDataForm.HexBox.ByteProvider = null;
             MainForm.StructureForm.Tree.Nodes.Clear();
             MainForm.PropertyForm.Properties.SelectedObject = null;
             if (!mViewOutboundMenu.Checked && !mViewInboundMenu.Checked) return;
@@ -197,10 +204,14 @@ namespace MapleShark
                 Definition definition = Config.Instance.Definitions.Find(d => d.Build == mBuild && d.Outbound == packet.Outbound && d.Opcode == packet.Opcode);
                 packet.Name = definition == null ? "" : definition.Name;
                 if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode)) mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
+                
                 if (definition != null && !mViewIgnoredMenu.Checked && definition.Ignore) continue;
+               
                 mPacketList.Items.Add(packet);
+        
                 if (packet == previous) packet.Selected = true;
             }
+            //foreach (FiestaPacket mm in mPacketList.Items) { MessageBox.Show(mm.Type.ToString());  }
         }
 
 
@@ -271,8 +282,8 @@ namespace MapleShark
 
         private void mPacketList_SelectedIndexChanged(object pSender, EventArgs pArgs)
         {
-            if (mPacketList.SelectedItems.Count == 0) { MainForm.DataForm.HexBox.ByteProvider = null; MainForm.StructureForm.Tree.Nodes.Clear(); MainForm.PropertyForm.Properties.SelectedObject = null; return; }
-            MainForm.DataForm.HexBox.ByteProvider = new DynamicByteProvider((mPacketList.SelectedItems[0] as FiestaPacket).InnerBuffer);
+            if (mPacketList.SelectedItems.Count == 0) { MainForm.pDataForm.HexBox.ByteProvider = null; MainForm.StructureForm.Tree.Nodes.Clear(); MainForm.PropertyForm.Properties.SelectedObject = null; return; }
+            MainForm.pDataForm.HexBox.ByteProvider = new DynamicByteProvider((mPacketList.SelectedItems[0] as FiestaPacket).InnerBuffer);
             MainForm.StructureForm.ParseFiestaPacket(mPacketList.SelectedItems[0] as FiestaPacket);
         }
 
@@ -308,6 +319,7 @@ namespace MapleShark
                 {
                     mPacketContextNameBox.Text = definition.Name;
                     mPacketContextIgnoreMenu.Checked = definition.Ignore;
+                    MessageBox.Show("test");
                 }
             }
         }

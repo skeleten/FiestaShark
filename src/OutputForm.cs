@@ -19,5 +19,10 @@ namespace MapleShark
         }
 
         public void Append(string pOutput) { mTextBox.AppendText(pOutput); }
+
+        private void mTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

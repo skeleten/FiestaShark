@@ -39,12 +39,15 @@ namespace MapleShark
             this.mNextOpcodeButton = new System.Windows.Forms.Button();
             this.mSequenceSplitter = new System.Windows.Forms.SplitContainer();
             this.resetFilter = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.mSplitter)).BeginInit();
             this.mSplitter.Panel1.SuspendLayout();
             this.mSplitter.Panel2.SuspendLayout();
             this.mSplitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mOpcodeSplitter)).BeginInit();
             this.mOpcodeSplitter.Panel1.SuspendLayout();
             this.mOpcodeSplitter.Panel2.SuspendLayout();
             this.mOpcodeSplitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mSequenceSplitter)).BeginInit();
             this.mSequenceSplitter.Panel2.SuspendLayout();
             this.mSequenceSplitter.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +99,7 @@ namespace MapleShark
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(267, 7);
+            this.label2.Location = new System.Drawing.Point(181, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 14);
             this.label2.TabIndex = 10;
@@ -109,7 +112,7 @@ namespace MapleShark
             // 
             this.HeaderBox.Border.Class = "TextBoxBorder";
             this.HeaderBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.HeaderBox.Location = new System.Drawing.Point(0, 5);
+            this.HeaderBox.Location = new System.Drawing.Point(60, 5);
             this.HeaderBox.Name = "HeaderBox";
             this.HeaderBox.Size = new System.Drawing.Size(100, 20);
             this.HeaderBox.TabIndex = 7;
@@ -117,7 +120,7 @@ namespace MapleShark
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 7);
+            this.label1.Location = new System.Drawing.Point(12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 14);
             this.label1.TabIndex = 9;
@@ -130,7 +133,7 @@ namespace MapleShark
             // 
             this.Typebox.Border.Class = "TextBoxBorder";
             this.Typebox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Typebox.Location = new System.Drawing.Point(161, 5);
+            this.Typebox.Location = new System.Drawing.Point(221, 5);
             this.Typebox.Name = "Typebox";
             this.Typebox.Size = new System.Drawing.Size(100, 20);
             this.Typebox.TabIndex = 8;
@@ -194,13 +197,16 @@ namespace MapleShark
             this.Text = "Search";
             this.mSplitter.Panel1.ResumeLayout(false);
             this.mSplitter.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mSplitter)).EndInit();
             this.mSplitter.ResumeLayout(false);
             this.mOpcodeSplitter.Panel1.ResumeLayout(false);
             this.mOpcodeSplitter.Panel1.PerformLayout();
             this.mOpcodeSplitter.Panel2.ResumeLayout(false);
             this.mOpcodeSplitter.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mOpcodeSplitter)).EndInit();
             this.mOpcodeSplitter.ResumeLayout(false);
             this.mSequenceSplitter.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mSequenceSplitter)).EndInit();
             this.mSequenceSplitter.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -213,9 +219,9 @@ namespace MapleShark
         private System.Windows.Forms.Button mNextOpcodeButton;
         private System.Windows.Forms.SplitContainer mSequenceSplitter;
         private System.Windows.Forms.Label label1;
-    	public TextBoxX Typebox;
         public System.Windows.Forms.Label label2;
-    	public TextBoxX HeaderBox;
         private System.Windows.Forms.Button resetFilter;
+        public TextBoxX Typebox;
+        public TextBoxX HeaderBox;
     }
 }
