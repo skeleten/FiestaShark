@@ -205,7 +205,6 @@ namespace MapleShark
         
                 if (packet == previous) packet.Selected = true;
             }
-            //foreach (FiestaPacket mm in mPacketList.Items) { MessageBox.Show(mm.Type.ToString());  }
         }
 
 
@@ -313,7 +312,6 @@ namespace MapleShark
                 {
                     mPacketContextNameBox.Text = definition.Name;
                     mPacketContextIgnoreMenu.Checked = definition.Ignore;
-                    MessageBox.Show("test");
                 }
             }
         }

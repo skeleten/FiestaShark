@@ -39,7 +39,9 @@ namespace MapleShark.SHN.Datas
                                 ItemInfo info = ItemInfo.Load(reader);
                                 if (ItemsByID.ContainsKey(info.ItemID) || ItemsByName.ContainsKey(info.InxName))
                                 {
-                                    //    Log.WriteLine(LogLevel.Warn, "Duplicate item found ID: {0} ({1}).", info.ItemID, info.InxName);
+                                    
+                                    
+                                    Log.WriteLine(LogLevel.Warn, "Duplicate item found ID: {0} ({1}).", info.ItemID, info.InxName);
                                     continue;
                                 }
                                 ItemsByID.Add(info.ItemID, info);
