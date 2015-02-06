@@ -8,8 +8,8 @@ namespace MapleShark
     public sealed class Config
     {
         public string Interface = "";
-        public ushort LowPort = 8585;
-        public ushort HighPort = 8586;
+        public ushort LowPort = 9000;
+        public ushort HighPort = 9300;
         public List<Definition> Definitions = new List<Definition>();
 
         private static Config sInstance = null;
