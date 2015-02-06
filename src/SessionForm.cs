@@ -27,7 +27,7 @@ namespace MapleShark
         private FiestaStream mOutboundStream = null;
         private FiestaStream mInboundStream = null;
         private List<FiestaPacket> mPackets = new List<FiestaPacket>();
-        private List<Pair<bool, ushort>> mOpcodes = new List<Pair<bool, ushort>>();
+        private List<Tuple<bool, ushort>> mOpcodes = new List<Tuple<bool, ushort>>();
 
         public Func<FiestaPacket, bool> FilterOut = (packet) => false; 
         
@@ -39,7 +39,7 @@ namespace MapleShark
         public MainForm MainForm { get { return ParentForm as MainForm; } }
         public ListView ListView { get { return mPacketList; } }
         public ushort Build { get { return 1; } }
-        public List<Pair<bool, ushort>> Opcodes { get { return mOpcodes; } }
+        public List<Tuple<bool, ushort>> Opcodes { get { return mOpcodes; } }
 
         internal bool MatchTCPPacket(TCPPacket pTCPPacket)
         {
@@ -125,9 +125,9 @@ namespace MapleShark
                 {
                     mPackets.Add(packet);
                     Definition definition = Config.Instance.Definitions.Find(d => d.Build == 1 && d.Outbound == packet.Outbound && d.Opcode == packet.Opcode);
-                    if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode))
+                    if (!mOpcodes.Exists(kv => kv.Item1 == packet.Outbound && kv.Item2 == packet.Opcode))
                     {
-                        mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
+                        mOpcodes.Add(new Tuple<bool, ushort>(packet.Outbound, packet.Opcode));
     
                     }
                     if (definition != null && definition.Ignore) continue;
@@ -170,7 +170,7 @@ namespace MapleShark
                     Definition definition = Config.Instance.Definitions.Find(d => d.Build == mBuild && d.Outbound == outbound && d.Opcode == opcode);
                     FiestaPacket packet = new FiestaPacket(new DateTime(timestamp), outbound, opcode,Type,Header, definition == null ? "" : definition.Name, buffer);
                     mPackets.Add(packet);
-                    if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode)) mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
+                    if (!mOpcodes.Exists(kv => kv.Item1 == packet.Outbound && kv.Item2 == packet.Opcode)) mOpcodes.Add(new Tuple<bool, ushort>(packet.Outbound, packet.Opcode));
                     if (definition != null && definition.Ignore) continue;
                     mPacketList.Items.Add(packet);
                 }
@@ -197,7 +197,7 @@ namespace MapleShark
                 if (FilterOut(packet)) continue;
                 Definition definition = Config.Instance.Definitions.Find(d => d.Build == mBuild && d.Outbound == packet.Outbound && d.Opcode == packet.Opcode);
                 packet.Name = definition == null ? "" : definition.Name;
-                if (!mOpcodes.Exists(kv => kv.First == packet.Outbound && kv.Second == packet.Opcode)) mOpcodes.Add(new Pair<bool, ushort>(packet.Outbound, packet.Opcode));
+                if (!mOpcodes.Exists(kv => kv.Item1 == packet.Outbound && kv.Item2 == packet.Opcode)) mOpcodes.Add(new Tuple<bool, ushort>(packet.Outbound, packet.Opcode));
                 
                 if (definition != null && !mViewIgnoredMenu.Checked && definition.Ignore) continue;
                
