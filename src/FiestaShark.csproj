@@ -851,7 +851,7 @@
     <Content Include="Docking\Resources\DockPane_Option.bmp" />
     <Content Include="Docking\Resources\DockPane_OptionOverflow.bmp" />
     <Content Include="Fiesta.ico" />
-    <Content Include="Readme.txt">
+    <Content Include="Readme.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Shark.ico" />
