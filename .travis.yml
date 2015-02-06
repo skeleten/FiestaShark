@@ -1,2 +1,2 @@
-language csharp
-solution ./src/FiestaShark.sln
+language: csharp
+solution: ./src/FiestaShark.sln
