@@ -31,47 +31,47 @@ namespace MapleShark {
 				return null;
 			}
 		}
-	  public short? Short {
-	    get {
-	      if (mBuffer.Length >= 2)
+		public short? Short {
+			get {
+				if (mBuffer.Length >= 2)
 					return BitConverter.ToInt16(mBuffer, 0);
 				return null;
-	    }
-	  }
-	  public uint? UInt {
-	    get {
-	      if (mBuffer.Length >= 4)
+			}
+		}
+		public uint? UInt {
+			get {
+				if (mBuffer.Length >= 4)
 					return BitConverter.ToUInt32(mBuffer, 0);
 				return null;
-	    }
-	  }
-	  public int? Int {
-	    get {
-	      if (mBuffer.Length >= 4)
+			}
+		}
+		public int? Int {
+			get {
+				if (mBuffer.Length >= 4)
 					return BitConverter.ToInt32(mBuffer, 0);
 				return null;
-	    }
-	  }
-	  public ulong? ULong {
-	    get {
-	      if (mBuffer.Length >= 8)
+			}
+		}
+		public ulong? ULong {
+			get {
+				if (mBuffer.Length >= 8)
 					return BitConverter.ToUInt64(mBuffer, 0);
 				return null;
-	    }
-	  }
-	  public long? Long {
-	    get {
-	      if (mBuffer.Length >= 8)
+			}
+		}
+		public long? Long {
+			get {
+				if (mBuffer.Length >= 8)
 					return BitConverter.ToInt64(mBuffer, 0);
 				return null;
-	    }
-	  }
+			}
+		}
 
-	  public long? SelectetLenght {
-	    get {
-	      return Program.MainForm.pDataForm.HexBox.SelectionLength;
-	    }
-	  }
+		public long? SelectetLenght {
+			get {
+				return Program.MainForm.pDataForm.HexBox.SelectionLength;
+			}
+		}
 		public string String {
 			get {
 				if (mBuffer.Length == 0) return null;
