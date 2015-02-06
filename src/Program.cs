@@ -15,8 +15,21 @@ namespace MapleShark {
 			_MainForm = new MainForm(pArgs);
 			Application.Run(_MainForm);
 		}
-		internal static string AssemblyVersion { get { return Assembly.GetExecutingAssembly().GetName().Version.ToString(); } }
-		internal static string AssemblyCopyright { get { return ((AssemblyCopyrightAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright; } }
+	  internal static string AssemblyVersion {
+	    get {
+	      return Assembly.GetExecutingAssembly()
+								.GetName()
+								.Version
+								.ToString();
+	    }
+	  }
+	  internal static string AssemblyCopyright {
+	    get {
+	      return ((AssemblyCopyrightAttribute)Assembly.GetExecutingAssembly()
+								.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0])
+								.Copyright;
+	    }
+	  }
 
 		internal static MainForm MainForm { get { return _MainForm; } }
 
@@ -27,22 +40,28 @@ namespace MapleShark {
 				if (pExtension.Length != 0) {
 					if (pExtension[0] != '.') pExtension = "." + pExtension;
 
-					using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(pExtension)) if (key == null) using (RegistryKey extKey = Registry.ClassesRoot.CreateSubKey(pExtension)) extKey.SetValue(string.Empty, pProgramId);
+					using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(pExtension))
+					  if (key == null)
+					    SetRegisteryKeyValue(Registry.ClassesRoot, pExtension, pProgramId);
 
 					using (RegistryKey extKey = Registry.ClassesRoot.OpenSubKey(pExtension)) {
 						using (RegistryKey key = extKey.OpenSubKey(pProgramId)) {
 							if (key == null) {
 								using (RegistryKey progIdKey = Registry.ClassesRoot.CreateSubKey(pProgramId)) {
 									progIdKey.SetValue(string.Empty, pDescription);
-									using (RegistryKey defaultIcon = progIdKey.CreateSubKey("DefaultIcon")) defaultIcon.SetValue(string.Empty, String.Format("\"{0}\",{1}", pIconPath, pIconIndex));
 
-									using (RegistryKey command = progIdKey.CreateSubKey("shell\\open\\command")) command.SetValue(string.Empty, String.Format("\"{0}\" \"%1\"", pEXE));
+								  SetRegisteryKeyValue(progIdKey, "DefaultIcon", string.Format("\"{0}\",{1}", pIconPath, pIconIndex));
+									SetRegisteryKeyValue(progIdKey, @"shell\open\command", string.Format("\"{0}\" \"%1\"", pEXE));
 								}
 							}
 						}
 					}
 				}
 			} catch (Exception) { }
+		}
+
+		private static void SetRegisteryKeyValue(RegistryKey progIdKey, string path, string value) {
+			using (RegistryKey command = progIdKey.CreateSubKey(path)) command.SetValue(string.Empty, value);
 		}
 	}
 }
