@@ -16,8 +16,7 @@ namespace MapleShark
         {
             InitializeComponent();
 
-            Text = "FiestaShark " + Program.AssemblyVersion + " -- Csharp 
-            Base by Astaelan";
+            Text = "FiestaShark " + Program.AssemblyVersion + " -- Csharp Base by Astaelan";
             bool selected = false;
             int localAreaConnection = -1;
             foreach (PcapDevice device in new PcapDeviceList())
