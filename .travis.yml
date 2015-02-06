@@ -1,5 +1,2 @@
 language csharp
 solution ./src/FiestaShark.sln
-
-script:
-  - xbuild ./src/FiestaShark.sln
