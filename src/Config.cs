@@ -42,7 +42,7 @@ namespace MapleShark
             XmlWriterSettings xws = new XmlWriterSettings()
             {
                 Indent = true,
-                IndentChars = "  ",
+                IndentChars = "\t",
                 NewLineOnAttributes = true,
                 OmitXmlDeclaration = true
             };
