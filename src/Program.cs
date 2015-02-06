@@ -37,25 +37,24 @@ namespace MapleShark {
 		private static MainForm _MainForm;
 		private static void RegisterFileAssociation(string pExtension, string pProgramId, string pDescription, string pEXE, string pIconPath, int pIconIndex) {
 			try {
-				if (pExtension.Length != 0) {
-					if (pExtension[0] != '.') pExtension = "." + pExtension;
+			  if (pExtension.Length == 0) return;
 
-					using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(pExtension))
-					  if (key == null)
-					    SetRegisteryKeyValue(Registry.ClassesRoot, pExtension, pProgramId);
+				if(!pExtension.StartsWith("."))
+					pExtension = "." + pExtension;
 
-					using (RegistryKey extKey = Registry.ClassesRoot.OpenSubKey(pExtension)) {
-						using (RegistryKey key = extKey.OpenSubKey(pProgramId)) {
-							if (key == null) {
-								using (RegistryKey progIdKey = Registry.ClassesRoot.CreateSubKey(pProgramId)) {
-									progIdKey.SetValue(string.Empty, pDescription);
+				using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(pExtension))
+					if (key == null)
+					  SetRegisteryKeyValue(Registry.ClassesRoot, pExtension, pProgramId);
 
-								  SetRegisteryKeyValue(progIdKey, "DefaultIcon", string.Format("\"{0}\",{1}", pIconPath, pIconIndex));
-									SetRegisteryKeyValue(progIdKey, @"shell\open\command", string.Format("\"{0}\" \"%1\"", pEXE));
-								}
+				using (RegistryKey extKey = Registry.ClassesRoot.OpenSubKey(pExtension)) {
+				using (RegistryKey key = extKey.OpenSubKey(pProgramId))
+					if (key == null) 
+						using (RegistryKey progIdKey = Registry.ClassesRoot.CreateSubKey(pProgramId)) {
+							progIdKey.SetValue(string.Empty, pDescription);
+
+							SetRegisteryKeyValue(progIdKey, "DefaultIcon", string.Format("\"{0}\",{1}", pIconPath, pIconIndex));
+							SetRegisteryKeyValue(progIdKey, @"shell\open\command", string.Format("\"{0}\" \"%1\"", pEXE));
 							}
-						}
-					}
 				}
 			} catch (Exception) { }
 		}
