@@ -1,12 +1,8 @@
 ﻿using ScriptNET.Runtime;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
-namespace MapleShark
-{
-    public sealed class ScriptAPI
+namespace MapleShark {
+	public sealed class ScriptAPI
     {
         private StructureForm mStructure = null;
 

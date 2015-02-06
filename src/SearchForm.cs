@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace MapleShark
-{
-    public partial class SearchForm : DockContent
+namespace MapleShark {
+	public partial class SearchForm : DockContent
     {
     	public static SearchForm Instance { get; private set; }
         public SearchForm()

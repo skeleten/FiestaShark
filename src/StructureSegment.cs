@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace MapleShark
-{
-    public sealed class StructureSegment
+namespace MapleShark {
+	public sealed class StructureSegment
     {
         private byte[] mBuffer;
 

@@ -1,8 +1,6 @@
 ﻿using ScriptNET;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -10,9 +8,8 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using MapleShark.SHN.Datas;
 
-namespace MapleShark
-{
-    public partial class StructureForm : DockContent
+namespace MapleShark {
+	public partial class StructureForm : DockContent
     {
         private FiestaPacket mParsing = null;
         private Stack<StructureNode> mSubNodes = new Stack<StructureNode>();

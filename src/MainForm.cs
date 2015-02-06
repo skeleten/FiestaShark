@@ -1,18 +1,12 @@
 ﻿using SharpPcap;
 using SharpPcap.Packets;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using MapleShark.SHN.Datas;
 
-namespace MapleShark
-{
-    public partial class MainForm : Form
+namespace MapleShark {
+	public partial class MainForm : Form
     {
         private bool mClosed = false;
         private PcapDevice mDevice = null;

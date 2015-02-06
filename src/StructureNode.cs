@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace MapleShark
-{
-    public class StructureNode : TreeNode
+namespace MapleShark {
+	public class StructureNode : TreeNode
     {
         public byte[] Buffer;
         public int Cursor;

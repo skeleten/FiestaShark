@@ -1,13 +1,11 @@
 ﻿using Microsoft.Win32;
 using ScriptNET.Runtime;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MapleShark
-{
-    internal static class Program
+namespace MapleShark {
+	internal static class Program
     {
         [STAThread]
         private static void Main(string[] pArgs)

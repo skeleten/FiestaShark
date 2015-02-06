@@ -1,18 +1,14 @@
-﻿using ScriptNET;
-using SharpPcap.Packets;
+﻿using SharpPcap.Packets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace MapleShark
-{
-    public partial class SessionForm : DockContent
+namespace MapleShark {
+	public partial class SessionForm : DockContent
     {
         private string mFilename = null;
         private bool mTerminated = false;

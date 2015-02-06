@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MapleShark
-{
-    public sealed class FiestaPacket : ListViewItem
+namespace MapleShark {
+	public sealed class FiestaPacket : ListViewItem
     {
         private DateTime mTimestamp;
         private bool mOutbound;

@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace MapleShark
-{
-    public partial class ScriptForm : DockContent
+namespace MapleShark {
+	public partial class ScriptForm : DockContent
     {
         private string mPath = "";
         private FiestaPacket mPacket = null;
