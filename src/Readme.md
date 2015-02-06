@@ -10,14 +10,14 @@ Information regarding the syntax of S# itself can be found at http://www.protsyk
 Functions defined below follow a simple syntax: <return type> <function name>(<parameters>)
 
 Scripts have only one object exposed to them named ScriptAPI.
-All of the following functions are called from the context of ScriptAPI, IE: ScriptAPI.AddByte("Example");
+All of the following functions are called from the context of ScriptAPI, IE: `ScriptAPI.AddByte("Example");`
 
 
-byte AddByte(string name)
+    byte AddByte(string name)
 
-  Adds unsigned byte as a field with given name to the structure view, and returns the value.
-  
-sbyte AddSByte(string name)
+  Adds unsigned byte as a field with given name to     the structure view, and returns the value.
+
+    sbyte AddSByte(string name)
 
   Adds signed byte as a field with given name to the structure view, and returns the value.
 
@@ -29,72 +29,72 @@ short AddShort(string name)
 
   Adds signed short as a field with given name to the structure view, and returns the value.
 
-uint AddUInt(string name)
+    uint AddUInt(string name)
 
   Adds unsigned int as a field with given name to the structure view, and returns the value.
 
-int AddInt(string name)
+    int AddInt(string name)
 
   Adds signed int as a field with given name to the structure view, and returns the value.
 
-float AddFloat(string name)
+    float AddFloat(string name)
 
   Adds 4 byte float as a field with given name to the structure view, and returns the value.
 
-ulong AddULong(string name)
+    ulong AddULong(string name)
 
   Adds unsigned long as a field with given name to the structure view, and returns the value.
 
-long AddLong(string name)
+    long AddLong(string name)
 
   Adds signed long as a field with given name to the structure view, and returns the value.
 
-double AddDouble(string name)
+    double AddDouble(string name)
 
   Adds 8 byte double float as a field with given name to the structure view, and returns the value.
 
-string AddPaddedString(string name, int length)
+    string AddPaddedString(string name, int length)
 
   Adds fixed length string as a field with given name and length to the structure view, and returns the value.
 
-void AddField(string name, int length)
+    void AddField(string name, int length)
 
   Adds a field with given name and length to the structure view, and returns nothing.
 
-void StartNode(string name)
+    void StartNode(string name)
 
   Adds a sub node with given name as the new parent until required matching EndNode, and returns nothing.
 
-void EndNode(bool expand)
+    void EndNode(bool expand)
 
   Completes the last StartNode, expanding contents if expand is true, and returns nothing.
 
-void Write(string file, string line)
+    void Write(string file, string line)
 
   Appends the given line of text to the given file, and returns nothing.
-  
-int Remaining()
+
+    int Remaining()
 
   Returns the number of bytes remaining unprocessed in the packet.
 
-byte GetItemTypeByName(ushort ItemID)
+    byte GetItemTypeByName(ushort ItemID)
 
-  returns itemtype When ItemInfo loaded 
+  returns itemtype When ItemInfo loaded
 
-byte GetItemTypeByName(string InxName)
+    byte GetItemTypeByName(string InxName)
 
-  returns itemtype When ItemInfo loaded 
+  returns itemtype When ItemInfo loaded
 
-bool IsItemTwoHand(ushort ItemID)
+    bool IsItemTwoHand(ushort ItemID)
 
 return twohand true or false when itemInfo.shn Loadet
 
 
-byte GetItemClassByName(string ItemInxName)
+    byte GetItemClassByName(string ItemInxName)
 
-  returns itemclass When ItemInfo loaded 
+  returns itemclass When ItemInfo loaded
 
 
-byte GetItemClassByID(ushort ItemID)
+    byte GetItemClassByID(ushort ItemID)
 
-  returns itemclass When ItemInfo loaded. 
+  returns itemclass When ItemInfo loaded.
