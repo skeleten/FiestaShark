@@ -1,2 +1,6 @@
 language: csharp
 solution: ./src/FiestaShark.sln
+
+script:
+	- export MONO_IOMAP=all xbuild
+	- xbuild ./src/FiestaShark.sln
