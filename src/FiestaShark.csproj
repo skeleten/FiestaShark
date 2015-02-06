@@ -856,6 +856,13 @@
     </Content>
     <Content Include="Shark.ico" />
     <Content Include="SharkLogo.png" />
+    <EmbeddedResource Include="SyntaxBox\Alsing.SourceCode.SourceCodePrintDocument.bmp" />
+    <EmbeddedResource Include="SyntaxBox\Alsing.SourceCode.SyntaxDocument.bmp" />
+    <EmbeddedResource Include="SyntaxBox\Alsing.Windows.Forms.SyntaxBoxControl.bmp" />
+    <EmbeddedResource Include="SyntaxBox\FlippedCursor.cur" />
+    <EmbeddedResource Include="SyntaxBox\MoveDown.cur" />
+    <EmbeddedResource Include="SyntaxBox\MoveUp.cur" />
+    <EmbeddedResource Include="SyntaxBox\MoveUpDown.cur" />
     <Content Include="SyntaxBox\Text\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
