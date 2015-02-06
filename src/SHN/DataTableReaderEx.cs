@@ -13,7 +13,7 @@ namespace MapleShark.SHN
         public DataTableReaderEx(DataTable pTable)
         {
             this.isDisposed = false;
-            //Thank you MicroSoft, for making it a sealed class...
+            // Thank you MicroSoft, for making it a sealed class...
             this.reader = new DataTableReader(pTable);
             for (int i = 0; i < pTable.Columns.Count; ++i)
             {
